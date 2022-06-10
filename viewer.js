@@ -64,6 +64,8 @@ export default {
             1,
             100
         )
+        this.camera.position.set(5,10,10)
+        this.camera.lookAt(0,0,0)
         let that = this
         this.addResize('resize_camera', () => {
             that.camera.aspect = that.renderer.domElement.width / that.renderer.domElement.height
@@ -78,7 +80,11 @@ export default {
     createLight() {
         this.light1 = new THREE.DirectionalLight(0xffffff, .5)
         this.scene.add(this.light1)
-        this.light1.position.set(5, 5, 5)
+        this.light1.position.set(-1,3,10)
+
+        this.light2 = new THREE.AmbientLight(0xffffff, .5)
+        this.scene.add(this.light2)
+        this.light2.position.set(5, 5, 5)
     },
 
     addUpdate(name, func) {
